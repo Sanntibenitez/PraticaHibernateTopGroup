@@ -11,15 +11,36 @@ public class Puesto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "puestoid")
 	private Long id;
 
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String nombre;
 
-	@Column(length = 75)
+	@Column(length = 75, nullable = false)
 	private String descripcion;
 
-	public Puesto() {
+	public Long getId() {
+		return id;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 }

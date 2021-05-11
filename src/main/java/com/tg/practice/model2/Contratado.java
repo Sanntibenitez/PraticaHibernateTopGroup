@@ -15,13 +15,34 @@ public class Contratado extends Empleado {
 	@Temporal(TemporalType.DATE)
 	private Date fechaFin;
 
-	@Column
+	@Column(nullable = false)
 	private Boolean paseAPlanta;
 
 	@Enumerated(EnumType.STRING)
 	private TipoContrato tipoContrato;
 
-	public Contratado() {
+	public Date getFechaFin() {
+		return fechaFin;
+	}
+
+	public void setFechaFin(Date fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+	public Boolean getPaseAPlanta() {
+		return paseAPlanta;
+	}
+
+	public void setPaseAPlanta(Boolean paseAPlanta) {
+		this.paseAPlanta = paseAPlanta;
+	}
+
+	public TipoContrato getTipoContrato() {
+		return tipoContrato;
+	}
+
+	public void setTipoContrato(TipoContrato tipoContrato) {
+		this.tipoContrato = tipoContrato;
 	}
 
 }

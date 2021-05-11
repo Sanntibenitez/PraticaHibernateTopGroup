@@ -9,10 +9,23 @@ public class Permanente extends Empleado {
 	@Column
 	private Integer cantidadHijos;
 
-	@Column
+	@Column(nullable = false)
 	private Double porcentajeBono;
 
-	public Permanente() {
+	public Integer getCantidadHijos() {
+		return cantidadHijos;
+	}
+
+	public void setCantidadHijos(Integer cantidadHijos) {
+		this.cantidadHijos = cantidadHijos;
+	}
+
+	public Double getPorcentajeBono() {
+		return porcentajeBono;
+	}
+
+	public void setPorcentajeBono(Double porcentajeBono) {
+		this.porcentajeBono = porcentajeBono;
 	}
 
 }
