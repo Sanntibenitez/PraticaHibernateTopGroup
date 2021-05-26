@@ -16,17 +16,12 @@ public class PracticeTest {
 
 		sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		log.info("Session factory creado correctamente");
-		
-		
-		sessionFactory.close();
+
 	}
-	
+
 	@Test
 	public void test() {
-		
 
 	}
-	
-
 
 }
