@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tg.practice.model.Familia;
 import com.tg.practice.model.Medida;
 import com.tg.practice.model.Producto;
 import com.tg.practice.model.TipoProducto;
@@ -33,25 +32,23 @@ public class PracticeTest {
 
 		Transaction tx = session.beginTransaction();
 
-		for (int i = 0; i <= 50000; i++) {
+		int totalDeProductos = 50000;
+
+		for (int i = 0; i <= totalDeProductos; i++) {
 
 			Producto producto = new Producto();
+
 			Medida medida = new Medida();
-			Familia familia = new Familia();
-			TipoProducto tipoProducto = new TipoProducto();
-			
 			medida.setAltura(10d);
 			medida.setAncho(10d);
 			medida.setLargo(10d);
 
-			familia.setClave("Clave");
-			familia.setDescripcion("Descripcion");
-
+			TipoProducto tipoProducto = new TipoProducto();
 			tipoProducto.setDescripcion("Descripcion");
+			session.save(tipoProducto);
 
 			producto.setCodigo("Codigo");
 			producto.setDescripcion("Descricpion");
-			producto.setFamilia(familia);
 			producto.setInferior(true);
 			producto.setMedida(medida);
 			producto.setProductosPorPaquete((short) 1);

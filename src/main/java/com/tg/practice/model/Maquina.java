@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
@@ -13,13 +12,13 @@ import javax.persistence.ManyToMany;
 public class Maquina {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long id;
 
 	@Column(length = 150, nullable = false)
 	private String nombre;
 
-	@ManyToMany
+	@ManyToMany(mappedBy="maquinas")
 	private List<Producto> productos;
 
 	public Long getId() {

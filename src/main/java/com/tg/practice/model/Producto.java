@@ -10,8 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Producto {
@@ -36,15 +38,19 @@ public class Producto {
 	private Medida medida;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(nullable = false)
 	private TipoProducto tipoProducto;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(nullable = false)
 	private Familia familia;
 
-	@ManyToMany(mappedBy = "productos")
+	@ManyToMany
+	@JoinTable(name = "PRODUCTO_MAQUINA", joinColumns = { @JoinColumn(name = "idProducto") }, inverseJoinColumns = {
+			@JoinColumn(name = "idMaquina") })
 	Set<Maquina> maquinas;
+	
+	@OneToOne(mappedBy = "producto")
+	private Stock stock;
 
 	public Long getId() {
 		return id;
@@ -109,5 +115,5 @@ public class Producto {
 	public void setFamilia(Familia familia) {
 		this.familia = familia;
 	}
-	
+
 }

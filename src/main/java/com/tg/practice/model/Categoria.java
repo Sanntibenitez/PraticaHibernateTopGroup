@@ -1,12 +1,13 @@
 package com.tg.practice.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Categoria extends Familia {
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	SubFamilia subFamilia;
 
 	public SubFamilia getSubFamilia() {
@@ -15,5 +16,15 @@ public class Categoria extends Familia {
 
 	public void setSubFamilia(SubFamilia subFamilia) {
 		this.subFamilia = subFamilia;
+	}
+	
+	@Override
+	public Boolean isSubFamilia() {
+		return false;
+	}
+
+	@Override
+	public Boolean isCategoria() {
+		return true;
 	}
 }

@@ -42,7 +42,7 @@ public abstract class Empleado {
 	@Column(nullable = false)
 	private Integer dni;
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 25, nullable = false)
 	private Integer cuil;
 
 	@Temporal(TemporalType.DATE)

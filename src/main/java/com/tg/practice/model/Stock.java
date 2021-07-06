@@ -3,9 +3,11 @@ package com.tg.practice.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -14,14 +16,10 @@ import javax.persistence.TemporalType;
 @IdClass(value = StockPK.class)
 public class Stock {
 
-	@Id
-	private Long id;
-
-	@Id
-	private Long token;
+	@EmbeddedId
+	private StockPK id;
 
 	@Temporal(TemporalType.DATE)
-	@Column(nullable = false)
 	private Date fechaStock;
 
 	@Column(nullable = false)
@@ -30,24 +28,9 @@ public class Stock {
 	@Column(length = 150)
 	private String nota;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idProducto")
 	private Producto producto;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getToken() {
-		return token;
-	}
-
-	public void setToken(Long token) {
-		this.token = token;
-	}
 
 	public Date getFechaStock() {
 		return fechaStock;

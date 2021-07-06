@@ -1,24 +1,28 @@
 package com.tg.practice.model;
 
-public class StockPK {
+import java.io.Serializable;
 
-	private Long id;
+public class StockPK implements Serializable {
 
-	private Long token;
+	private static final long serialVersionUID = -121412124512512412L;
 
-	public Long getId() {
-		return id;
+	private Long codigoInterno;
+
+	private String token;
+
+	public Long getCodigoInterno() {
+		return codigoInterno;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodigoInterno(Long codigoInterno) {
+		this.codigoInterno = codigoInterno;
 	}
 
-	public Long getToken() {
+	public String getToken() {
 		return token;
 	}
 
-	public void setToken(Long token) {
+	public void setToken(String token) {
 		this.token = token;
 	}
 

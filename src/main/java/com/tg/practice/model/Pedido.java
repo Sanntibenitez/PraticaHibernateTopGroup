@@ -34,7 +34,7 @@ public class Pedido {
 	private EstadoPedido estadoPedido;
 
 	@ManyToOne
-	@JoinColumn(nullable = false)
+	@JoinColumn(name="idProducto")
 	private Producto producto;
 
 	public Long getId() {

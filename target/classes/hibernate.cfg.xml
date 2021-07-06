@@ -24,6 +24,17 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
 
 		<!-- mappings -->
+		<mapping class="com.tg.practice.model.Categoria" />
+		<mapping class="com.tg.practice.model.EstadoPedido" />
+		<mapping class="com.tg.practice.model.Familia" />
+		<mapping class="com.tg.practice.model.Maquina" />
+		<mapping class="com.tg.practice.model.Medida" />
+		<mapping class="com.tg.practice.model.Pedido" />
+		<mapping class="com.tg.practice.model.Producto" />
+		<mapping class="com.tg.practice.model.Stock" />
+		<mapping class="com.tg.practice.model.StockPK" />	
+		<mapping class="com.tg.practice.model.SubFamilia" />
+		<mapping class="com.tg.practice.model.TipoProducto" />	
 
 		<!-- Model 1 -->
 
